@@ -1,0 +1,34 @@
+@mixin margin0{
+  margin: 0px;
+}
+@mixin rounded-corners {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px
+}
+
+$font-family: PingFang SC,Microsoft Yahei,Helvetica Neue,Helvetica,Arial,sans-serif;
+$fontSize: 12px;
+$defaultColor : #34495e;
+$black:#24292e;
+$white:rgba(255,255,255,0.75);
+
+body{
+  @include margin0;
+  color: $defaultColor;
+  font-size: $fontSize;
+  font-family: $font-family;
+}
+.fade-enter-active ,.fade-leave-active{
+  transition:opacity .5s ease
+}
+.fade-enter, .fade-leave-active{
+  opacity:0
+}
+
+.page-enter-active{
+  animation: slideInLeft 0.5s;
+}
+.page-leave-active{
+  animation: slideOutRight 0.5s;
+}
