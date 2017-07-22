@@ -1,6 +1,8 @@
 <template>
-  <div class="vuelog">
+  <div class="right">
+    <div class="right-content">
     <h1>Index</h1>
+    </div>
   </div>
 </template>
 

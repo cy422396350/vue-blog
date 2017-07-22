@@ -2,7 +2,7 @@
   <transition name="fade" mode="out-in">
     <loading v-if="!image" key="loading"></loading>
     <div class="guide" v-if="image" key="guide">
-      <div class="inner">
+      <div class="inner" v-bind:class="{ lighter: image}">
         <p>{{name}}</p>
         <hr>
         <p class="title">{{title}}</p>
@@ -71,9 +71,12 @@ export default {
     from {background: rgba(0,0,0,.4);}
     to {background:transparent}
   }
+
+  .lighter{
+    animation:myfirst 1s;
+    -webkit-animation: myfirst 1s linear 1s backwards;
+  }
   .inner{
-    animation: myfirst 1s;
-    -webkit-animation: myfirst 1s linear 1s backwards; /* Safari 与 Chrome */
     width: 100%;
     height: 100vh;
     max-height: 100%;

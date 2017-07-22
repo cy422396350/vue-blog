@@ -1,10 +1,12 @@
 <template>
-  <div>
+  <div class="right">
+    <div class="right-content">
     <ul>
       <li v-for="item in articles">
         <router-link :to="'/article/'+item._id" v-text="item.title"></router-link>
       </li>
     </ul>
+    </div>
   </div>
 </template>
 
@@ -75,3 +77,7 @@ export default {
   },
 }
 </script>
+<style lang="scss">
+    @import '../assets/style/global.scss';
+    @import '../assets/style/animate.css';
+</style>
