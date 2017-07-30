@@ -9,7 +9,7 @@
           </div>
           <article>
               <header>
-                  <router-link :to="'/article/'+item._id" v-text="item.title"></router-link>
+                  <router-link :to="'/article/'+item.ID" v-text="item.title"></router-link>
                   <time></time>
               </header>
               <p>
@@ -18,10 +18,10 @@
               <footer>
                   <ul>
                     <li>
-                        <router-link :to="'/article/'+item._id">xxxx</router-link>
+                        <router-link :to="'/article/'+item.ID">xxxx</router-link>
                     </li>
                     <li>
-                        <router-link :to="'/article/'+item._id">xxxx</router-link>
+                        <router-link :to="'/article/'+item.ID">xxxx</router-link>
                     </li>
                   </ul>
               </footer>
@@ -49,13 +49,16 @@ export default {
     },
     watch: {
       current_id: function(newValue, oldValue) {
-        let url = this.buildUrl(this.$store.state.config.url.articles)+"&typeId="+newValue
-        this.$http.get(url).then(response => {
+//        let url = this.buildUrl(this.$store.state.config.url.articles)+"&typeId="+newValue
+          let url = "http://127.0.0.1:5000/category/"+newValue
+          this.$http.get(url).then(response => {
           // get body data
-          let data = JSON.parse(response.bodyText);
-          if(data.showapi_res_code===0){
-            this.articles = data.showapi_res_body.pagebean.contentlist;
-          }
+//          let data = JSON.parse(response.bodyText);
+//          if(data.showapi_res_code===0){
+//            this.articles = data.showapi_res_body.pagebean.contentlist;
+//          }
+              let data = JSON.parse(response.bodyText);
+              this.articles = data
         }, response => {
           // error callback
         });
@@ -79,13 +82,12 @@ export default {
      * showapi_sign=664b6bfeb4edf136d46ab405319e742c
      */
     this.current_id = this.$route.params.category
-    let url = this.buildUrl(this.$store.state.config.url.articles)+"&typeId="+this.current_id
-    this.$http.get(url).then(response => {
+//    let url = this.buildUrl(this.$store.state.config.url.articles)+"&typeId="+this.current_id
+      let url = "http://127.0.0.1:5000/category/"+newValue
+      this.$http.get(url).then(response => {
       // get body data
       let data = JSON.parse(response.bodyText);
-      if(data.showapi_res_code===0){
-        this.articles = data.showapi_res_body.pagebean.contentlist;
-      }
+      this.articles = data
     }, response => {
       // error callback
     });
