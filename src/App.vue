@@ -3,9 +3,7 @@
       <transition appear name="fade" mode="out-in">
           <vue-header v-if="guide"></vue-header>
       </transition>
-      <transition name="page" mode="out-in">
-          <router-view @showbox="toshow"></router-view>
-      </transition>
+      <router-view @showbox="toshow"></router-view>
   </div>
 </template>
 

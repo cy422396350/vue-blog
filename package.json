@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "database": "0.0.2",
+    "jquery": "^3.2.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "vue": "^2.3.3",

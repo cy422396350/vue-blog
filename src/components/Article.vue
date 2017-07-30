@@ -1,4 +1,5 @@
 <template>
+  <transition appear name="page" mode="out-in">
   <div class="right">
     <div class="right-content">
       <header>
@@ -8,6 +9,7 @@
       <p v-text="article"> Windows Internet Explorer 9(缩写为 IE9 )是在2011年3月14日21:00发布的</p>
     </div>
   </div >
+  </transition>
 </template>
 
 <script>

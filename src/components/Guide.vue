@@ -2,7 +2,7 @@
   <transition name="fade" mode="out-in">
     <loading v-if="!image" key="loading"></loading>
     <div class="guide" v-if="image" key="guide">
-      <div class="inner" v-bind:class="{ lighter: image}">
+      <div class="inner lighter">
         <p>{{name}}</p>
         <hr>
         <p class="title">{{title}}</p>
@@ -32,14 +32,19 @@ export default {
     }
   },
   created () {
-      var self = this;
-      var backgroud = new Image();
+      let self = this;
+      let backgroud = new Image();
+      let backgroud_header = new Image();
       backgroud.src = "http://ossz5roem.bkt.clouddn.com/ed1e68ab58a1b7b4513ca3eea0211fc7.jpg"
-      if(backgroud.complete){
+      backgroud_header.src = "http://ossz5roem.bkt.clouddn.com/bg-2.jpg";
+
+      if(backgroud.complete && backgroud_header.complete){
         self.isimage = 1;
       }else{
           backgroud.onload = function () {
-            self.isimage = 1;
+              backgroud_header.onload = function () {
+                  self.isimage = 1;
+              }
           }
       }
   },
@@ -50,7 +55,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../assets/style/global.scss';
+    $black:#24292e;
+    $white:rgba(255,255,255,0.75);
   $whiteColor: #fff;
   $border: 1px solid #DF9C81;
   @mixin backgroundCover($url) {

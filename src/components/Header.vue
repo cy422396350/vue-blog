@@ -2,6 +2,8 @@
   <div class="left">
     <div class="overlay"></div>
       <div class="leftContent">
+          <h1>常中蝎</h1>
+          <input type="text" maxlength="30" id="search_text" placeholder="请输入搜索内容..."/>
           <nav class="header-menu">
               <ul>
                   <li v-for="item in categories">
@@ -47,6 +49,13 @@ export default{
 </script>
 
 <style lang="scss">
+    #search_text{
+        background: none;
+        border: none;
+        border-bottom:2px solid #888383;
+        padding: 3px 3px 3px 5px;
+        color:#888383;
+    }
   .overlay{
     width: 100%;
     height: 100%;
@@ -63,16 +72,20 @@ export default{
         left: 50%;
         top: 50%;
         margin: 40px 0 auto;
-        transform: translate(-50%, -50%);;
+        transform: translate(-50%, -50%);
+        h1{
+            color:ghostwhite
+        }
     }
     nav{
         width: 300px;
         line-height: 30px;
-        font-size:24px;
+        font-size:18px;
         ul{
             padding: 0;
             li{
                 text-align: center;
+                display: list-item;
                 a{
                     color:ghostwhite;
                     &:hover{
