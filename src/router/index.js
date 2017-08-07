@@ -34,14 +34,14 @@ var router = new Router({
 
 router.push({ path: 'guide' })
 
-router.beforeEach((to, from, next) => {
+/*router.beforeEach((to, from, next) => {
   if(to.name === "guide"){
     router.push({ path: '/' })
     next()
   }else {
     next()
   }
-})
+})*/
 
 
 export default router

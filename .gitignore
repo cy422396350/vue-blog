@@ -6,7 +6,6 @@ api/.idea
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-index.html
 # Editor directories and files
 .idea
 *.suo
@@ -16,3 +15,4 @@ index.html
 .editorconfig
 .babelrc
 .postcssrc.js
+/index.html
