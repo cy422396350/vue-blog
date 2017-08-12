@@ -83,7 +83,7 @@ export default {
      */
     this.current_id = this.$route.params.category
 //    let url = this.buildUrl(this.$store.state.config.url.articles)+"&typeId="+this.current_id
-      let url = this.$store.state.apiUrl+"category/"+newValue
+      let url = this.$store.state.apiUrl+"category/"+this.current_id
       this.$http.get(url).then(response => {
       // get body data
       let data = JSON.parse(response.bodyText);
