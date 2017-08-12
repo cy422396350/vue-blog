@@ -3,6 +3,7 @@ from flask_restful import Api, Resource
 from flask import make_response
 
 from category import CategoryModel
+from article import ArticleModel
 
 app = Flask(__name__)
 
@@ -33,10 +34,15 @@ class Categories(Resource):
     @allow_cross_domain
     def get(self):
         return CategoryModel.getCat()
+class Article(Resource):
+    @allow_cross_domain
+    def get(self, id):
+        return ArticleModel.getInfo(id)
 
 
-api.add_resource(Category, '/category/<int:category_id>/<int:page>')
-api.add_resource(Categories, '/categories')
+api.add_resource(Category, '/category/<int:category_id>/<int:page>', '/category/<int:category_id>')
+api.add_resource(Categories, '/categories', '/categories/')
+api.add_resource(Article, '/article/<int:id>')
 
 if __name__ == '__main__':
     app.run(debug=True)

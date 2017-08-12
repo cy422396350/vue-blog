@@ -23,9 +23,7 @@ class CategoryModel(object):
     def getAll(category_id=0, page=1):
         conn = getDB()
         cursor = conn.cursor()
-        sql = "select ID,post_title from wp_posts where post_type='post' AND post_status='publish'"
-        if (category_id > 0):
-            sql += " AND post_parent=" + str(category_id)
+        sql = "select a.id,a.post_title title from wp_posts as a LEFT JOIN wp_term_relationships as b on a.ID = b.object_id where b.term_taxonomy_id ="+str(category_id)+" AND a.post_status = 'publish'"
         if (page > 1):
             sql += " LIMIT " + str((page - 1) * 10) + ",10"
         else:
