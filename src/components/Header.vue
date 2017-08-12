@@ -7,7 +7,7 @@
           <nav class="header-menu">
               <ul>
                   <li v-for="item in categories">
-                      <router-link :to="'/category/'+item.id" v-text="item.name"></router-link>
+                      <router-link :to="'/category/'+item.id" v-text="item.title"></router-link>
                   </li>
               </ul>
           </nav>
@@ -34,13 +34,12 @@ export default{
      * &
      * showapi_sign=664b6bfeb4edf136d46ab405319e742c
      */
-    const categoryUrl = this.buildUrl(this.$store.state.config.url.category)
-    this.$http.get(categoryUrl).then(response => {
+    //const categoryUrl = this.buildUrl(this.$store.state.config.url.category)
+    let url = this.$store.state.apiUrl+"categories/"
+    this.$http.get(url).then(response => {
       // get body data
       let data = JSON.parse(response.bodyText);
-      if(data.showapi_res_code===0){
-        this.categories = data.showapi_res_body.typeList;
-      }
+      this.categories = data
     }, response => {
       // error callback
     });
