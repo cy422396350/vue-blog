@@ -50,7 +50,7 @@ export default {
     watch: {
       current_id: function(newValue, oldValue) {
 //        let url = this.buildUrl(this.$store.state.config.url.articles)+"&typeId="+newValue
-          let url = "http://127.0.0.1:5000/category/"+newValue
+          let url = this.$store.state.apiUrl+"category/"+newValue
           this.$http.get(url).then(response => {
           // get body data
 //          let data = JSON.parse(response.bodyText);
@@ -83,7 +83,7 @@ export default {
      */
     this.current_id = this.$route.params.category
 //    let url = this.buildUrl(this.$store.state.config.url.articles)+"&typeId="+this.current_id
-      let url = "http://127.0.0.1:5000/category/"+newValue
+      let url = this.$store.state.apiUrl+"category/"+newValue
       this.$http.get(url).then(response => {
       // get body data
       let data = JSON.parse(response.bodyText);

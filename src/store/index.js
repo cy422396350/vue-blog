@@ -9,6 +9,7 @@ Vue.use(Vuex)
 
 const state = {
   config,
+    apiUrl:"http://119.23.72.70:8888/"
 }
 
 /*const state = {
