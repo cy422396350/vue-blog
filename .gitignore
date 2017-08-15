@@ -15,4 +15,6 @@ yarn-error.log*
 .editorconfig
 .babelrc
 .postcssrc.js
-/index.html
+index.html
+api/*.pyc
+api.conf
